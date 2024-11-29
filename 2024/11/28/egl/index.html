@@ -4,9 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="EGL, big bear">
-    <meta name="description" content="EGL1.EGLDisplay初始化EGLDisplay​	获取EGLDisplay后需要初始化，初始化接口，指向具体的EGL主副版本；
-12EGLBoolean eglInitialize(EGLDisplay dpy, EGLint *">
+    <meta name="keywords" content="EGL简介, big bear">
+    <meta name="description" content="EGL简介1.EGLDisplay获取​	使用EGL的入口点，获取EGLDisplay
+1EGLDisplay eglGetDisplay(EGLNativeDisplayType display_id);
+
+EGL_DEFAULT_DIS">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>EGL | big bear</title>
+    <title>EGL简介 | big bear</title>
     <link rel="icon" type="image/png" href="/bigbear.github.io/favicon.png">
     
 
@@ -257,13 +259,6 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
@@ -271,76 +266,33 @@
         </div>
 
         
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
-        
     </nav>
 
 </header>
 
     
+<script src="/bigbear.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/bigbear.github.io/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/bigbear.github.io/medias/featureimages/18.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/bigbear.github.io/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">EGL</h1>
+                    <h1 class="description center-align post-title">EGL简介</h1>
                 </div>
             </div>
         </div>
@@ -401,7 +353,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="EGL"><a href="#EGL" class="headerlink" title="EGL"></a>EGL</h1><h2 id="1-EGLDisplay"><a href="#1-EGLDisplay" class="headerlink" title="1.EGLDisplay"></a>1.EGLDisplay</h2><h3 id="初始化EGLDisplay"><a href="#初始化EGLDisplay" class="headerlink" title="初始化EGLDisplay"></a>初始化EGLDisplay</h3><p>​	获取EGLDisplay后需要初始化，初始化接口，指向具体的EGL主副版本；</p>
+                <h1 id="EGL简介"><a href="#EGL简介" class="headerlink" title="EGL简介"></a>EGL简介</h1><h2 id="1-EGLDisplay"><a href="#1-EGLDisplay" class="headerlink" title="1.EGLDisplay"></a>1.EGLDisplay</h2><h3 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h3><p>​	使用EGL的入口点，获取EGLDisplay</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EGLDisplay eglGetDisplay(EGLNativeDisplayType display_id);</span><br></pre></td></tr></table></figure>
+
+<p><code>EGL_DEFAULT_DISPLAY</code>：是display_id的默认值，通常是当前显示</p>
+<ul>
+<li>X11平台示例</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Display* x11_display = XOpenDisplay(NULL); // 打开默认 X11 显示</span><br><span class="line">EGLDisplay display = eglGetDisplay((EGLNativeDisplayType)x11_display);</span><br><span class="line">if (display == EGL_NO_DISPLAY) &#123;</span><br><span class="line">    fprintf(stderr, &quot;Failed to get EGLDisplay for X11\n&quot;);</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>wayland</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct wl_display* wayland_display = wl_display_connect(NULL); // 连接到默认 Wayland 显示</span><br><span class="line">EGLDisplay display = eglGetDisplay((EGLNativeDisplayType)wayland_display);</span><br><span class="line">if (display == EGL_NO_DISPLAY) &#123;</span><br><span class="line">    fprintf(stderr, &quot;Failed to get EGLDisplay for Wayland\n&quot;);</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>windows平台</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HDC hdc = GetDC(hwnd); // 获取窗口设备上下文</span><br><span class="line">EGLDisplay display = eglGetDisplay((EGLNativeDisplayType)hdc);</span><br><span class="line">if (display == EGL_NO_DISPLAY) &#123;</span><br><span class="line">    fprintf(stderr, &quot;Failed to get EGLDisplay for Windows\n&quot;);</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>扩展</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// egl1.5 core函数</span><br><span class="line">EGLDisplay eglGetPlatformDisplay(EGLenum platform, void *native_display,const EGLAttrib *attrib_list)</span><br><span class="line">// egl 扩展</span><br><span class="line">EGLDisplay eglGetPlatformDisplayEXT(EGLenum platform, void *native_display,const EGLint *int_attribs)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="初始化EGLDisplay"><a href="#初始化EGLDisplay" class="headerlink" title="初始化EGLDisplay"></a>初始化EGLDisplay</h3><p>​	获取EGLDisplay后需要初始化，初始化接口，指向具体的EGL主副版本；</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EGLBoolean eglInitialize(EGLDisplay dpy, EGLint *major, EGLint *minor);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h3 id="查询EGLDisplay信息"><a href="#查询EGLDisplay信息" class="headerlink" title="查询EGLDisplay信息"></a>查询EGLDisplay信息</h3><p>​	查询EGLDisplay信息</p>
@@ -474,7 +452,7 @@
 <ul>
 <li>buffer：通常未EGL_BACK_BUFFER</li>
 </ul>
-<h2 id="5-EGLImages"><a href="#5-EGLImages" class="headerlink" title="5.EGLImages"></a>5.EGLImages</h2><p>​	EGL允许相同API的上下文之间共享大量状态（包括纹理对象），但是某些情况下需要在不同api之间(GLES、VK、EGL)共享状态，比如OpenVG图像作为OGLES纹理对象。那么EGLImages对象就是可以实现不同客户端api的相互共享的资源对象；</p>
+<h2 id="5-EGLImage"><a href="#5-EGLImage" class="headerlink" title="5.EGLImage"></a>5.EGLImage</h2><p>​	EGL允许相同API的上下文之间共享大量状态（包括纹理对象），但是某些情况下需要在不同api之间(GLES、VK、EGL)共享状态，比如OpenVG图像作为OGLES纹理对象。那么EGLImages对象就是可以实现不同客户端api的相互共享的资源对象；</p>
 <p><strong>EGLImageKHR</strong>：EGLImage的实际类型，表示共享的图形数据，作为桥梁，在不同API之间访问，可以减少数据拷贝，提供性能。</p>
 <h3 id="创建-2"><a href="#创建-2" class="headerlink" title="创建"></a>创建</h3><p>​	从一个资源创建EGLImage，比如纹理或者缓冲区</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EGLImage eglCreateImage(EGLDisplay       dpy,</span><br><span class="line">                        EGLContext       ctx,</span><br><span class="line">                        EGLenum          target,</span><br><span class="line">                        EGLClientBuffer  buffer,</span><br><span class="line">                        const EGLAttrib* attrib_list);</span><br></pre></td></tr></table></figure>
@@ -484,6 +462,7 @@
 <li><code>EGL_GL_TEXTURE_2D_KHR</code>：OpenGL ES 2D 纹理。</li>
 <li><code>EGL_GL_RENDERBUFFER_KHR</code>：OpenGL ES 渲染缓冲区。</li>
 <li><code>EGL_NATIVE_PIXMAP_KHR</code>：本地 pixmap。</li>
+<li><code>EGL_LINUX_DMA_BUF_EXT</code>：扩展目标类型，使用该类型是，buffer参数为null，dma</li>
 </ol>
 <p><strong>buffer</strong>:客户端缓冲区资源句柄，比如：OGLES的纹理对象ID。</p>
 <h3 id="绑定-1"><a href="#绑定-1" class="headerlink" title="绑定"></a>绑定</h3><p>​	将一个EGLImage绑定到GLES的纹理</p>
@@ -496,6 +475,46 @@
 
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;EGL/egl.h&gt;</span><br><span class="line">#include &lt;EGL/eglext.h&gt;</span><br><span class="line">#include &lt;GLES2/gl2.h&gt;</span><br><span class="line">#include &lt;GLES2/gl2ext.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 初始化 EGL 和 OpenGL ES 环境（略）</span><br><span class="line"></span><br><span class="line">    // 1. 创建一个 OpenGL ES 纹理</span><br><span class="line">    GLuint texture;</span><br><span class="line">    glGenTextures(1, &amp;texture);</span><br><span class="line">    glBindTexture(GL_TEXTURE_2D, texture);</span><br><span class="line">    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 256, 256, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);</span><br><span class="line"></span><br><span class="line">    // 2. 创建 EGLImageKHR 对象</span><br><span class="line">    EGLImageKHR image = eglCreateImageKHR(</span><br><span class="line">        display,</span><br><span class="line">        context,</span><br><span class="line">        EGL_GL_TEXTURE_2D_KHR,</span><br><span class="line">        (EGLClientBuffer)texture,</span><br><span class="line">        NULL</span><br><span class="line">    );</span><br><span class="line">    if (image == EGL_NO_IMAGE_KHR) &#123;</span><br><span class="line">        printf(&quot;Failed to create EGLImage\n&quot;);</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 3. 使用 EGLImage 在另一个 OpenGL ES 纹理中</span><br><span class="line">    GLuint shared_texture;</span><br><span class="line">    glGenTextures(1, &amp;shared_texture);</span><br><span class="line">    glBindTexture(GL_TEXTURE_2D, shared_texture);</span><br><span class="line">    glEGLImageTargetTexture2DOES(GL_TEXTURE_2D, image);</span><br><span class="line"></span><br><span class="line">    // 4. 使用共享的纹理进行渲染（略）</span><br><span class="line"></span><br><span class="line">    // 5. 清理资源</span><br><span class="line">    eglDestroyImageKHR(display, image);</span><br><span class="line">    glDeleteTextures(1, &amp;texture);</span><br><span class="line">    glDeleteTextures(1, &amp;shared_texture);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="6-EGLSync"><a href="#6-EGLSync" class="headerlink" title="6.EGLSync"></a>6.EGLSync</h2><p>​	该对象提供一种同步机制，处理不同图形操作或者多个图形任务之间的顺序，在多线程或者多进程之间尤其重要。同步需求主要在等待GPU渲染任务的完成，确保后续任务可以在正确的时间执行，多线程之间同步渲染命令的执行，实现多步渲染操作的顺序控制。</p>
+<h3 id="创建-3"><a href="#创建-3" class="headerlink" title="创建"></a>创建</h3><p>​	创建EGLSync对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EGLSyncKHR eglCreateSyncKHR(</span><br><span class="line">    EGLDisplay display,</span><br><span class="line">    EGLenum type,</span><br><span class="line">    const EGLint *attrib_list</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><strong>type</strong>：同步对象类型</p>
+<ol>
+<li><code>EGL_SYNC_FENCE_KHR</code>：这是一种基于 GPU 的同步对象，通常用于等待 GPU 完成某些操作，如渲染。</li>
+<li><code>EGL_SYNC_NATIVE_FENCE_FD_KHR</code>：这个同步对象与底层操作系统的同步机制兼容，通常用于与 Linux 上的 fence 或 sync 文件描述符配合使用。</li>
+</ol>
+<p><strong>attrib_list</strong>:同步对象属性的整数数组，取决type类型</p>
+<ol>
+<li><code>EGL_SYNC_FENCE_KHR</code> 类型的同步对象可能不需要任何附加属性；</li>
+<li><code>EGL_SYNC_NATIVE_FENCE_FD_KHR</code> 类型的同步对象则可能需要指定某些操作系统特定的属性。如果没有附加的属性，传入 <code>NULL</code> 即可。</li>
+</ol>
+<h3 id="等待"><a href="#等待" class="headerlink" title="等待"></a>等待</h3><p>​	等待特定的同步对象达到某种状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">EGLint eglClientWaitSync(</span><br><span class="line">    EGLDisplay dpy,</span><br><span class="line">    EGLSyncKHR sync,</span><br><span class="line">    EGLint flags,</span><br><span class="line">    EGLTime timeout</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>​	常用于CPU在等待GPU的任务完成后再继续CPU上的计算操作，避免后续操作错误依赖未完成的GPU任务。</p>
+<h3 id="销毁-3"><a href="#销毁-3" class="headerlink" title="销毁"></a>销毁</h3><p>​	销毁同步对象，在销毁前确保没有其他地方依赖等待使用，如果提前销毁会有意想不到的情况。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EGLBoolean eglDestroySyncKHR(</span><br><span class="line">    EGLDisplay dpy,</span><br><span class="line">    EGLSyncKHR sync</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-eglSwapBuffers"><a href="#7-eglSwapBuffers" class="headerlink" title="7.eglSwapBuffers"></a>7.eglSwapBuffers</h2><p>​	交换前后台缓冲区的函数，在双缓冲或多缓冲的图形系统用于将渲染结果从后台缓冲区显示到前台缓冲区。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EGLBoolean eglSwapBuffers(</span><br><span class="line">    EGLDisplay dpy,</span><br><span class="line">    EGLSurface surface //eglCreateWindowSurface创建</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="eglSwapInterval"><a href="#eglSwapInterval" class="headerlink" title="eglSwapInterval"></a>eglSwapInterval</h3><p>​	控制V-sync间隔，控制缓冲区交换的频率，控制每秒交换的次数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EGLBoolean eglSwapInterval(</span><br><span class="line">    EGLDisplay dpy,</span><br><span class="line">    EGLint interval</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><strong>interval</strong>：</p>
+<ul>
+<li><p><strong>0</strong>：禁用垂直同步</p>
+</li>
+<li><p><strong>1</strong>：启用垂直同步，每个垂直同步周期交换一次，即和显示器的刷新率保持一致，一般是60Hz或者120Hz</p>
+</li>
+<li><p><strong>2</strong>：每两个垂直同步周期交换一次，降低GPU负载</p>
+</li>
+</ul>
+<h3 id="eglCopyBuffers"><a href="#eglCopyBuffers" class="headerlink" title="eglCopyBuffers"></a>eglCopyBuffers</h3><p>​	用于把EGLSurface上的图像数据复制到一个外部的缓冲区，一般用于把图像渲染结果保存到外部图像缓冲区，或者把图像数据传输到GPU之外的存储空间。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EGLBoolean eglCopyBuffers(</span><br><span class="line">    EGLDisplay dpy,</span><br><span class="line">    EGLSurface surface,// eglCreateWindowSuface创建</span><br><span class="line">    EGLNativePixmapType target //目标缓冲区，一般为外部</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>​	将EGLSurface上的图像数据直接复制到原生平台的缓冲区或纹理中，然后用于后续的处理，或者保存为图像文件。主要应用场景：截图、跨平台渲染、后处理等；</p>
 
                 
             </div>
@@ -649,9 +668,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/bigbear.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="EGL">
+                        <img src="/bigbear.github.io/medias/featureimages/13.jpg" class="responsive-img" alt="EGL简介">
                         
-                        <span class="card-title">EGL</span>
+                        <span class="card-title">EGL简介</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -900,7 +919,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2024</span>
             
             <a href="/bigbear.github.io/about" target="_blank">bigbear</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -932,13 +951,9 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
 
 
-
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:80442946@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -948,7 +963,7 @@
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=80442946" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 80442946" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1122,6 +1137,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/bigbear.github.io/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1148,8 +1171,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/bigbear.github.io/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/bigbear.github.io/libs/others/busuanzi.pure.mini.js"></script>
