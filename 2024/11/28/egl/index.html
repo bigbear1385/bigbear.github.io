@@ -470,6 +470,9 @@ EGL_DEFAULT_DIS">
 
 <p><strong>target</strong>：纹理目标类型，通常未GL_TEXTURE_2D</p>
 <p><strong>image</strong>:要绑定的EGLImage对象</p>
+<h3 id="手动触发"><a href="#手动触发" class="headerlink" title="手动触发"></a>手动触发</h3><p>​	显式通知EGL同步对象触发，用于与其他线程或客户端同步，确保资源在同步对象的状态改变后安全使用；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const char* extensions = eglQueryString(display, EGL_EXTENSIONS);</span><br><span class="line">if (strstr(extensions, &quot;EGL_KHR_fence_sync&quot;) == NULL) &#123;</span><br><span class="line">    printf(&quot;EGL_KHR_fence_sync not supported\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h3 id="销毁-2"><a href="#销毁-2" class="headerlink" title="销毁"></a>销毁</h3><p>销毁一个EGLImage对象，释放资源。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EGLBoolean eglDestroyImageKHR(EGLDisplay dpy, EGLImageKHR image);</span><br></pre></td></tr></table></figure>
 
@@ -515,6 +518,7 @@ EGL_DEFAULT_DIS">
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EGLBoolean eglCopyBuffers(</span><br><span class="line">    EGLDisplay dpy,</span><br><span class="line">    EGLSurface surface,// eglCreateWindowSuface创建</span><br><span class="line">    EGLNativePixmapType target //目标缓冲区，一般为外部</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <p>​	将EGLSurface上的图像数据直接复制到原生平台的缓冲区或纹理中，然后用于后续的处理，或者保存为图像文件。主要应用场景：截图、跨平台渲染、后处理等；</p>
+<h1 id="8-Others"><a href="#8-Others" class="headerlink" title="8.Others"></a>8.Others</h1><h2 id="1-eglBindAPI"><a href="#1-eglBindAPI" class="headerlink" title="1.eglBindAPI"></a>1.eglBindAPI</h2><p>​	指定客户端使用哪种API，OpenGL、OpenGLES、OpenVG</p>
 
                 
             </div>
@@ -710,13 +714,13 @@ EGL_DEFAULT_DIS">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/11/28/GLX/">
+                <a href="/2024/11/27/%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="GLX">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="搭建免费站点第一次尝试">
                         
-                        <span class="card-title">GLX</span>
+                        <span class="card-title">搭建免费站点第一次尝试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -727,7 +731,7 @@ EGL_DEFAULT_DIS">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-27
                             </span>
                         <span class="publish-author">
                             
